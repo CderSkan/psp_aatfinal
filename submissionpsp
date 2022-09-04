@@ -1,1 +1,50 @@
+#include<stdio.h>
+#include<conio.h>
+#include<math.h>
+void main()
+{       //a=number of unique monomers
+	//m=molecular mass of each monomers
+	//n=number of chains of each molecular weight
+	//mn=number average molecular mass
+	//mw=weigth average molecular mass
+	//pdi=poly dispersity index
+
+	float m[10],n[10],i,j,mn=0,mw=0,pdi,nume1,deno1,nume2,deno2;
+	int a;
+	clrscr();
+	printf("Enter total number of unique monomers:\n");
+	scanf("%d",&a);
+	printf("\nEnter the molecular mass of each monomers:\n");
+	for(i=0;i<a;i++)
+	{
+		scanf("%f",&m[i]);
+	}
+	printf("\nEnter the number of chains of each molecular weight:\n");
+	for(i=0;i<a;i++)
+	{
+		scanf("%f",&n[i]);
+	}
+	for(i=0;i<a;i++)
+	{
+		nume1+=m[i]*n[i];
+	}
+	for(i=0;i<a;i++)
+	{
+		deno1+=n[i];
+	}
+	mn=nume1/deno1;
+	printf("\nThe Number Average Molecular mass of the ploymer is %.3f\n",mn);
+	for(i=0;i<a;i++)
+	{
+		nume2+=pow(m[i],2)*n[i];
+	}
+	deno2=nume1;
+	mw=nume2/deno2;
+	printf("\nThe Weight Average Molecular mass of the polymer is %.3f\n",mw);
+	pdi=mw/mn;
+	printf("\nThe Poly Dispersity Index of the given polymer is %.3f",pdi);
+getch();
+}
+
+
 
